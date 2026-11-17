@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <!-- Solo corre el código de este sistema: nada en línea ni de otros sitios (bloquea scripts inyectados).
+       connect-src https: deja hablar con la API de facturación; blob: es el visor de PDF. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self'; connect-src 'self' https:; frame-src blob:; object-src blob:; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f5c4d">
+  <title>Veterinaria · Ventas y facturación</title>
+  <link rel="icon" href="img/icono.svg" type="image/svg+xml">
+  <script src="js/tema.js"></script>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="app" class="app" hidden>
+    <aside class="riel" id="riel" aria-label="Menú principal">
+      <div class="riel-cabeza">
+        <a href="#/inicio" class="riel-marca" id="riel-marca">
+          <span class="riel-logo" id="riel-logo"></span>
+          <span class="riel-marca-texto">
+            <span class="riel-marca-nombre" id="brand-name">Veterinaria</span>
+            <span class="riel-marca-sub">Ventas y facturación</span>
+          </span>
+        </a>
+      </div>
+      <nav class="riel-contenido" id="nav-side" aria-label="Secciones"></nav>
+      <div class="riel-pie" id="riel-pie"></div>
+    </aside>
+
+    <div class="velo" id="velo"></div>
+
+    <div class="area">
+      <header class="barra">
+        <button class="btn btn-plano barra-menu" id="btn-menu" type="button" aria-label="Mostrar u ocultar el menú" title="Mostrar u ocultar el menú" aria-controls="riel"></button>
+        <div class="barra-miga"><span id="barra-negocio">Veterinaria · </span><strong id="topbar-title">Inicio</strong></div>
+        <div class="barra-derecha">
+          <div class="barra-estado"><span class="pill pill-warn" id="env-badge">Beta</span></div>
+          <button class="btn btn-plano boton-tema" id="btn-tema" type="button"></button>
+        </div>
+      </header>
+
+      <div class="contenido">
+        <main class="vista main" id="view" tabindex="-1"></main>
+      </div>
+    </div>
+  </div>
+
+  <div id="auth" class="ingreso" hidden></div>
+
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <dialog class="modal" id="modal"></dialog>
+
+  <!-- Scripts clásicos (sin type="module"): así el sistema abre con doble clic en index.html. -->
+  <script src="config.js"></script>
+  <script src="js/sistema.js"></script>
+</body>
+</html>

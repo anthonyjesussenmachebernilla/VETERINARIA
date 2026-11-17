@@ -1,0 +1,15 @@
+services:
+  veterinaria:
+    build: .
+    container_name: veterinaria
+    restart: unless-stopped
+    ports:
+      - "${PUERTO:-8080}:8080"
+    env_file:
+      - path: ./servidor/.env
+        required: false
+    environment:
+      HOST: "0.0.0.0"
+      PUERTO: "8080"
+    volumes:
+      - ./servidor/respaldos:/app/servidor/respaldos
